@@ -1,9 +1,20 @@
 .slick-slider {
-  margin: 30px 30px 50px;
+}
+
+.view-slider {
+  margin: 30px 30px 0px;
   background: white;
+  height: 300px;
+}
+
+.control-slider {
+  margin: 30px 100px 0px;
 }
 
 .slick-arrow {
 }
 .slick-arrow:hover {
+}
+.slick-prev:before, .slick-next:before {
+  /* font-size: 45px; */
 }
