@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Carousel from './components/Carousel';
 
+//TODO extract slides into components
+
 class App extends Component {
   render() {
     return (
