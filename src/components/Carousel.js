@@ -29,7 +29,7 @@ export default class Carousel extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      arrows: false
+      arrows: false,
     };
     const controlSliderSettings = {
       dots: false,
@@ -48,15 +48,7 @@ export default class Carousel extends Component {
           {...viewSliderSettings}
           className='view-slider'
         >
-          <div>
-            <h3>0-9</h3>
-          </div>
-          <div>
-            <h3>10-19</h3>
-          </div>
-          <div>
-            <h3>10, 100, 1k, 1M</h3>
-          </div>
+          {this.props.children}
         </Slider>
         <Slider
           asNavFor={this.state.nav1}
@@ -64,15 +56,13 @@ export default class Carousel extends Component {
           {...controlSliderSettings}
           className='control-slider'
         >
-          <div>
-            <h3>0-9</h3>
-          </div>
-          <div>
-            <h3>10-19</h3>
-          </div>
-          <div>
-            <h3>10, 100, 1k, 1M</h3>
-          </div>
+          {React.Children.map(this.props.children, child => (
+            <div>
+              <h3>
+                {child.props.label}
+              </h3>
+            </div>
+          ))}
         </Slider>
       </div>
     );
