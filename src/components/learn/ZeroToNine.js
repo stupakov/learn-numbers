@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import LearnOverlay from "./LearnOverlay";
 
 // TODO: consider using styled-div for these
 
@@ -43,25 +44,64 @@ const NumberBox = (props) => {
   };
 
   return (
-    <h2 style={style}>{props.number}</h2>
+    <h2 style={style} onClick={props.onClick}>{props.number}</h2>
   );
 };
 
-const ZeroToNine = () => (
-  <NumberRows>
-    <NumberRow>
-      {[1,2,3].map((n) => (<NumberBox number={n} key={n}/>))}
-    </NumberRow>
-    <NumberRow>
-      {[4,5,6].map((n) => (<NumberBox number={n} key={n}/>))}
-    </NumberRow>
-    <NumberRow>
-      {[7,8,9].map((n) => (<NumberBox number={n} key={n}/>))}
-    </NumberRow>
-    <NumberRow>
-      {[0].map((n) => (<NumberBox number={n} key={n}/>))}
-    </NumberRow>
-  </NumberRows>
-);
+class ZeroToNine extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showOverlay: false,
+      overlayNumber: undefined
+    };
+  }
+
+  showOverlay(n) {
+    this.setState({
+      showOverlay: true,
+      overlayNumber: n
+    });
+  }
+
+  clearOverlay() {
+    this.setState({
+      showOverlay: false,
+      overlayNumber: undefined
+    });
+  }
+
+  render() {
+    if (this.state.showOverlay) {
+      return (<LearnOverlay
+        onClick={() => this.clearOverlay()}
+        number={this.state.overlayNumber}
+      />);
+    };
+
+    const numbers = [
+      [1,2,3],
+      [4,5,6],
+      [7,8,9],
+      [0]
+    ];
+
+    return (
+      <NumberRows>
+        {numbers.map((row, rowIdx) => (
+          <NumberRow key={rowIdx}>
+            {row.map((n) => (
+              <NumberBox
+                number={n}
+                key={n}
+                onClick={() => this.showOverlay(n)}
+              />
+            ))}
+          </NumberRow>
+        ))}
+      </NumberRows>
+    );
+  }
+}
 
 export default ZeroToNine;
