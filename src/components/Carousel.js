@@ -50,7 +50,7 @@ export default class Carousel extends Component {
         >
           {React.Children.map(this.props.children, child => (
             <div>
-              <div className='slide-inner'>
+              <div className='slide-wrapper'>
                 {child}
               </div>
             </div>
