@@ -17,6 +17,14 @@ const LearnPage = () => {
     [17,18,19]
   ];
 
+  const multipliers = [
+    ["10 + __"],
+    ["x10"],
+    ["x100"],
+    ["x1,000"],
+    ["x1,000,000"]
+  ]
+
   return (
     <Carousel>
       <div className='slide' label='0-9'>
@@ -26,7 +34,7 @@ const LearnPage = () => {
         <LearnNumbers layout={teens}/>
       </div>
       <div className='slide' label='10, 100, 1k, 1M'>
-        <h3>10, 100, 1k, 1M</h3>
+        <LearnNumbers layout={multipliers} wide={true}/>
       </div>
     </Carousel>
   );

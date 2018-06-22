@@ -31,12 +31,15 @@ const NumberRow = (props) => {
 };
 
 const NumberBox = (props) => {
+  let width = props.wide ? '170px' : '70px';
+  let borderRadius = props.wide ? '35px' : '50%';
+
   const style = {
     border: '3px solid hotpink',
 
-    width: '70px',
+    width: width,
     height: '70px',
-    borderRadius: '50%',
+    borderRadius: borderRadius,
 
     display: 'flex',
     alignItems: 'center',
@@ -88,6 +91,7 @@ class LearnNumbers extends Component {
                 number={n}
                 key={n}
                 onClick={() => this.showOverlay(n)}
+                wide={!!this.props.wide}
               />
             ))}
           </NumberRow>
