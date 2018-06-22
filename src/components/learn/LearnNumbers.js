@@ -48,7 +48,7 @@ const NumberBox = (props) => {
   );
 };
 
-class ZeroToNine extends Component {
+class LearnNumbers extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,16 +79,9 @@ class ZeroToNine extends Component {
       />);
     };
 
-    const numbers = [
-      [1,2,3],
-      [4,5,6],
-      [7,8,9],
-      [0]
-    ];
-
     return (
       <NumberRows>
-        {numbers.map((row, rowIdx) => (
+        {this.props.layout.map((row, rowIdx) => (
           <NumberRow key={rowIdx}>
             {row.map((n) => (
               <NumberBox
@@ -104,4 +97,4 @@ class ZeroToNine extends Component {
   }
 }
 
-export default ZeroToNine;
+export default LearnNumbers;
