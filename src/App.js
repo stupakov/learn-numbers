@@ -11,9 +11,15 @@ class MyTab extends Component {
   render() {
     return (
       <Page>
-        <section style={{margin: '16px'}}>
+        <div style={{
+          position: 'absolute',
+          left: '0px',
+          right: '0px',
+          height: 'calc(100vh - 49px)',
+          backgroundColor: 'lightblue'
+        }}>
           {this.props.children}
-        </section>
+        </div>
       </Page>
     );
   }

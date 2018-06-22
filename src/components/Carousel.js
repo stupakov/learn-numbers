@@ -48,7 +48,13 @@ export default class Carousel extends Component {
           {...viewSliderSettings}
           className='view-slider'
         >
-          {this.props.children}
+          {React.Children.map(this.props.children, child => (
+            <div>
+              <div className='slide-inner'>
+                {child}
+              </div>
+            </div>
+          ))}
         </Slider>
         <Slider
           asNavFor={this.state.nav1}
@@ -57,7 +63,7 @@ export default class Carousel extends Component {
           className='control-slider'
         >
           {React.Children.map(this.props.children, child => (
-            <div>
+            <div className='slide-label'>
               <h3>
                 {child.props.label}
               </h3>
