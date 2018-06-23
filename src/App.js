@@ -7,6 +7,8 @@ import { Page, Tabbar, Tab } from 'react-onsenui';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 
+import LanguageData from './languages/indonesian';
+
 class MyTab extends Component {
   render() {
     return (
@@ -36,7 +38,7 @@ class App extends Component {
   renderTabs() {
     return [
       {
-        content: <MyTab key="learn"><LearnPage/></MyTab>,
+        content: <MyTab key="learn"><LearnPage languageData={LanguageData}/></MyTab>,
         tab: <Tab label='Learn' icon='fa-lightbulb-o' key="learn"/>
       },
       {
