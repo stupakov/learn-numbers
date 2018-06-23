@@ -50,6 +50,7 @@ const layout = {
 
 const Indonesian = {
   translations: {
+    0: 'nol',
     1: 'satu',
     2: 'dua',
     3: 'tiga',
@@ -87,7 +88,21 @@ const Indonesian = {
 }
 
 const generateTranslateFor = (language) => (number) => {
-  return language.translations[number];
+  const directTranslation = language.translations[number];
+  if(directTranslation !== undefined) {
+    return directTranslation;
+  }
+
+  const k = Object.keys(groups).filter(key => (
+    groups[key].label === number
+  ));
+  const matchingGroup = groups[k[0]];
+
+  if(matchingGroup !== undefined) {
+    return matchingGroup.translation;
+  };
+
+  return '';
 };
 
 const wrapLanguageDefinition = (language) => (
