@@ -10,7 +10,7 @@ const LearnOverlay = (props) => {
   return (
     <div className='learn-overlay' onClick={props.onClick}>
       <h1>
-        {props.label}
+        {props.label.toLocaleString()}
       </h1>
       <h2>
         {props.translation}
@@ -18,7 +18,7 @@ const LearnOverlay = (props) => {
       <div className='learn-overlay-table'>
         {props.examples.map(ex => {
           return (<div className='learn-overlay-table-row' key={ex.number}>
-            <div className='learn-overlay-table-cell learn-overlay-table-number'>{ex.number}</div>
+            <div className='learn-overlay-table-cell learn-overlay-table-number'>{ex.number.toLocaleString()}</div>
             <div className='learn-overlay-table-cell'> = </div>
             <div className='learn-overlay-table-cell learn-overlay-table-word'>{emphasizeWord(ex.word, props.translation)}</div>
           </div>);
