@@ -76,12 +76,21 @@ class LearnNumbers extends Component {
 
   render() {
     if (this.state.showOverlay) {
+      const {translate, getExamples} = this.props.languageData;
       const number = this.state.overlayNumber;
+      const label = number.toString();
+      const translation = translate(number);
+      const examplesWithTranslations = getExamples(number).map(ex => (
+        {
+          number: ex,
+          word: translate(ex)
+        }
+      ));
+      const onClick=() => this.clearOverlay();
 
       return (<LearnOverlay
-        onClick={() => this.clearOverlay()}
-        label={number.toString()}
-        translation={this.props.languageData.translate(number)}
+        {...{label, translation, onClick}}
+        examples={examplesWithTranslations}
       />);
     };
 
