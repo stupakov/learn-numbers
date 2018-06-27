@@ -46,7 +46,7 @@ class App extends Component {
         tab: <Tab label='Practice' icon='fa-pencil-square-o' key="practice"/>
       },
       {
-        content: <MyTab key="reference"><ReferencePage/></MyTab>,
+        content: <MyTab key="reference"><ReferencePage languageData={LanguageData}/></MyTab>,
         tab: <Tab label='Reference' icon='md-book' key="reference" />
       }
     ];

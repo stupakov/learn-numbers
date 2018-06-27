@@ -3,6 +3,7 @@ import T2W from "numbers2words";
 const oneThroughNine = [1,2,3,4,5,6,7,8,9];
 
 const examples = {
+  ones: [0].concat(oneThroughNine),
   teens: oneThroughNine.map(n => n+10),
   tens: oneThroughNine.map(n => n*10),
   hundreds: oneThroughNine.map(n => n*100),
@@ -11,6 +12,11 @@ const examples = {
 }
 
 const groups = {
+  ones: {
+    label: "0, 1, 2, ...",
+    translation: undefined,
+    examples: examples.ones,
+  },
   teens: {
     label: "11, 12, ...",
     translation: "belas",
@@ -75,6 +81,14 @@ const Indonesian = {
       label: '10, 100, 1k, 1M',
       layout: layout.multipliers,
     },
+  ],
+  referenceSlides: [
+    groups.ones,
+    groups.teens,
+    groups.tens,
+    groups.hundreds,
+    groups.thousands,
+    groups.millions,
   ]
 }
 

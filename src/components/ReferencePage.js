@@ -1,24 +1,34 @@
 import React from "react";
 import Carousel from './Carousel';
+import LearnOverlay from './learn/LearnOverlay';
 
-const ReferencePage = () => (
-  <Carousel>
-    <div className='slide' label='0-9'>
-      0-9
-    </div>
-    <div className='slide' label='10-19'>
-      10-19
-    </div>
-    <div className='slide' label='10-100'>
-      10-100
-    </div>
-    <div className='slide' label='100-1000'>
-      100-10000
-    </div>
-    <div className='slide' label='10, 100, 1k, 1M'>
-      10, 100, 1k, 1M
-    </div>
-  </Carousel>
-);
+const renderGroup = (group, languageData) => {
+  const {translate, getExamples} = languageData;
+  const {label, translation} = group;
+  const examplesWithTranslations = group.examples.map(ex => (
+    {
+      number: ex,
+      word: translate(ex)
+    }
+  ));
+
+  return (<LearnOverlay
+    {...{label, translation}}
+    examples={examplesWithTranslations}
+  />);
+};
+
+const ReferencePage = (props) => {
+  const {languageData} = props;
+  return (
+    <Carousel>
+      {languageData.referenceSlides.map((group) => (
+        <div className='slide' label={group.label} key={group.label}>
+          {renderGroup(group, languageData)}
+        </div>
+      ))}
+    </Carousel>
+  );
+};
 
 export default ReferencePage;
