@@ -12,32 +12,27 @@ const examples = {
 
 const groups = {
   teens: {
-    label: "10 + __",
-    number: "10 + __",
+    label: "11, 12, ...",
     translation: "belas",
     examples: examples.teens,
   },
   tens: {
-    label: "x10",
-    number: 10,
+    label: "10, 20, ...",
     translation: "puluh",
     examples: examples.tens,
   },
   hundreds: {
-    label: "x100",
-    number: 100,
+    label: "100, 200, ...",
     translation: "ratus",
     examples: examples.hundreds,
   },
   thousands: {
-    label: "x1,000",
-    number: 1000,
+    label: "1k, 2k, ...",
     translation: "ribu",
     examples: examples.thousands,
   },
   millions: {
-    label: "x1,000,000",
-    number: 1000000,
+    label: "1M, 2M, ...",
     translation: "juta",
     examples: examples.millions,
   },

@@ -9,7 +9,7 @@ describe('translate()', () => {
   });
 
   it('translates groups', () => {
-    expect(ind.translate('x100')).toEqual('ratus');
+    expect(ind.translate('100, 200, ...')).toEqual('ratus');
   });
 
   it('returns empty string for unknown numbers', () => {
@@ -27,7 +27,7 @@ describe('getExamples()', () => {
   });
 
   it('returns the examples for the group with the specified label', () => {
-    expect(ind.getExamples('x100')).toEqual([
+    expect(ind.getExamples('100, 200, ...')).toEqual([
       100, 200, 300, 400, 500, 600, 700, 800, 900
     ]);
   });
