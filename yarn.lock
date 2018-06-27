@@ -4803,6 +4803,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
+numbers2words@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/numbers2words/-/numbers2words-1.4.0.tgz#964ddedf45a3fa7456d0b229a009539c32942aae"
+
 "nwmatcher@>= 1.3.9 < 2.0.0":
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/nwmatcher/-/nwmatcher-1.4.4.tgz#2285631f34a95f0d0395cd900c96ed39b58f346e"

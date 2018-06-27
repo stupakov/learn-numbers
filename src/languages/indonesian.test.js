@@ -4,6 +4,8 @@ describe('translate()', () => {
   it('translates individual numbers', () => {
     expect(ind.translate(1)).toEqual('satu');
     expect(ind.translate("1")).toEqual('satu');
+    expect(ind.translate(20)).toEqual('dua puluh');
+    expect(ind.translate("20")).toEqual('dua puluh');
   });
 
   it('translates groups', () => {

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "jquery": "^3.3.1",
+    "numbers2words": "^1.4.0",
     "onsenui": "^2.10.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

@@ -1,3 +1,5 @@
+import T2W from "numbers2words";
+
 const oneThroughNine = [1,2,3,4,5,6,7,8,9];
 
 const examples = {
@@ -64,28 +66,7 @@ const layout = {
 };
 
 const Indonesian = {
-  translations: {
-    0: 'nol',
-    1: 'satu',
-    2: 'dua',
-    3: 'tiga',
-    4: 'empat',
-    5: 'lima',
-    6: 'enam',
-    7: 'tujuh',
-    8: 'delapan',
-    9: 'sembilan',
-    10: 'sepuluh',
-    11: 'sebelas',
-    12: 'dua belas',
-    13: 'tiga belas',
-    14: 'empat belas',
-    15: 'lima belas',
-    16: 'enam belas',
-    17: 'tujuh belas',
-    18: 'delapan belas',
-    19: 'sembilan belas',
-  },
+  _getTranslator: () => (new T2W("ID_ID")),
   learnSlides: [
     {
       label: '0-9',
@@ -102,31 +83,30 @@ const Indonesian = {
   ]
 }
 
-
-// TODO extract common code from generateTranslateFor() and generateGetExamplesFor()
-const generateTranslateFor = (language) => (number) => {
-  const directTranslation = language.translations[number];
-  if(directTranslation !== undefined) {
-    return directTranslation;
-  }
-
+const _findGroupWithLabel = (label) => {
   const k = Object.keys(groups).filter(key => (
-    groups[key].label === number
+    groups[key].label === label
   ));
-  const matchingGroup = groups[k[0]];
+  return groups[k[0]];
+};
+
+const generateTranslateFor = (language) => (number) => {
+  const matchingGroup = _findGroupWithLabel(number);
 
   if(matchingGroup !== undefined) {
     return matchingGroup.translation;
   };
 
-  return '';
+  try {
+    const translator = language._getTranslator();
+    return translator.toWords(parseInt(number, 10));
+  } catch(e) {
+    return '';
+  }
 };
 
 const generateGetExamplesFor = (language) => (label) => {
-  const k = Object.keys(groups).filter(key => (
-    groups[key].label === label
-  ));
-  const matchingGroup = groups[k[0]];
+  const matchingGroup = _findGroupWithLabel(label);
 
   if(matchingGroup !== undefined) {
     return matchingGroup.examples;
