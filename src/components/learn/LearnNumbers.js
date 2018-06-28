@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LearnOverlay from "./LearnOverlay";
+import Definition from "../shared/Definition";
 
 // TODO: consider using styled-div for these
 
@@ -88,7 +88,7 @@ class LearnNumbers extends Component {
       ));
       const onClick=() => this.clearOverlay();
 
-      return (<LearnOverlay
+      return (<Definition
         {...{label, translation, onClick}}
         examples={examplesWithTranslations}
       />);

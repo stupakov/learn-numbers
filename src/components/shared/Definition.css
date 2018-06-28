@@ -1,4 +1,4 @@
-.learn-overlay {
+.definition {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -7,25 +7,25 @@
   text-align: left;
 }
 
-.learn-overlay-table {
+.definition-table {
   width: 100%;
 }
 
-.learn-overlay-table-row {
+.definition-table-row {
   display: flex;
 }
 
-.learn-overlay-table-cell {
+.definition-table-cell {
   padding: 2px 8px;
 }
 
-.learn-overlay-table-number {
+.definition-table-number {
   flex: 1;
   text-align: right;
   font-weight: 600;
 
 }
 
-.learn-overlay-table-word {
+.definition-table-word {
   flex: 1;
 }

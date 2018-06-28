@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from './Carousel';
-import LearnOverlay from './learn/LearnOverlay';
+import Definition from './shared/Definition';
 
 const renderGroup = (group, languageData) => {
   const {translate, getExamples} = languageData;
@@ -12,7 +12,7 @@ const renderGroup = (group, languageData) => {
     }
   ));
 
-  return (<LearnOverlay
+  return (<Definition
     {...{label, translation}}
     examples={examplesWithTranslations}
   />);
