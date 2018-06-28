@@ -31,7 +31,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0
+      index: 1
     }
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
         tab: <Tab label='Learn' icon='fa-lightbulb-o' key="learn"/>
       },
       {
-        content: <MyTab key="practice"><PracticePage/></MyTab>,
+        content: <MyTab key="practice"><PracticePage languageData={LanguageData}/></MyTab>,
         tab: <Tab label='Practice' icon='fa-pencil-square-o' key="practice"/>
       },
       {

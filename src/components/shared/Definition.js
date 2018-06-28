@@ -30,7 +30,7 @@ const Definition = (props) => {
 
 Definition.propTypes = {
   label: PropTypes.string.isRequired,
-  translation: PropTypes.string.isRequired,
+  translation: PropTypes.string,
   examples: PropTypes.array.isRequired,
 };
 

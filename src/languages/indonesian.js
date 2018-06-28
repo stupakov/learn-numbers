@@ -89,7 +89,29 @@ const Indonesian = {
     groups.hundreds,
     groups.thousands,
     groups.millions,
-  ]
+  ],
+  vocabulary: [
+    'nol',
+    'satu',
+    'dua',
+    'tiga',
+    'empat',
+    'lima',
+    'enam',
+    'tujuh',
+    'delapan',
+    'sembilan',
+    'sepuluh',
+    'sebelas',
+    'seratus',
+    'seribu',
+    'sejuta',
+    'puluh',
+    'belas',
+    'ratus',
+    'ribu',
+    'juta',
+  ],
 }
 
 const _findGroupWithLabel = (label) => {
