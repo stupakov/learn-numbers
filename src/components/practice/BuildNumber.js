@@ -70,6 +70,12 @@ class BuildNumber extends Component {
     return hasMistake;
   }
 
+  guessFullyCorrect() {
+    const g = this.state.guessWords;
+    const a = this.state.answerWords;
+    return a.length === g.length && a.every((v,i) => v === g[i])
+  }
+
   renderWordButtons() {
     const {languageData} = this.props;
 
@@ -97,15 +103,35 @@ class BuildNumber extends Component {
       }
       if(idx >= guessWords.length) {
         return (
-          <span className='guess-word'>_____</span>
+          <span className='guess-word' key={idx}>_____</span>
         );
       }
       return (
-        <span className='guess-word guess-word-incorrect' key={`${idx}-${guessWord}`}>
+        <span className='guess-word guess-word-incorrect' key={idx}>
           {guessWord}
         </span>
       );
     });
+  }
+
+  renderControls() {
+    if(this.guessFullyCorrect()) {
+      return (
+        <div className='build-number-success'>
+          <div>
+            Correct!
+          </div>
+          <button onClick={() => this.reset()}>
+            NEXT NUMBER
+          </button>
+        </div>
+      );
+    }
+    return (
+      <div className='build-number-answers'>
+        {this.renderWordButtons()}
+      </div>
+    );
   }
 
   render() {
@@ -123,8 +149,8 @@ class BuildNumber extends Component {
           {this.renderFormattedGuess(this.state.guessWords, this.state.answerWords)}
         </div>
 
-        <div className='build-number-answers'>
-          {this.renderWordButtons()}
+        <div className='build-number-controls'>
+          {this.renderControls()}
         </div>
       </div>
     );
