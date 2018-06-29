@@ -15,23 +15,27 @@ const generateNumber = () => (7654321);
 class BuildNumber extends Component {
   constructor(props) {
     super(props);
+
+    const number = generateNumber();
+    const answerWords = this.props.languageData.translate(number).split(' ');
     this.state = {
-      number: generateNumber(),
-      guess: [],
+      number: number,
+      answerWords: answerWords,
+      guessWords: [],
     }
   }
 
   addGuess(word) {
     this.setState({
-      guess: this.state.guess.concat([word]),
+      guessWords: this.state.guessWords.concat([word]),
     });
   }
 
   removeGuess() {
-    var guess = this.state.guess;
-    guess.pop();
+    var guessWords = this.state.guessWords;
+    guessWords.pop();
     this.setState({
-      guess: guess,
+      guessWords: guessWords,
     });
   }
 
@@ -47,6 +51,23 @@ class BuildNumber extends Component {
         key={word}
         onClick={onClick}
       >{word}</WordButton>
+    });
+  }
+
+  renderFormattedGuess(guessWords, answerWords) {
+    return guessWords.map((word, idx) => {
+      if(answerWords[idx] === word) {
+        return (
+          <span className='guess-word guess-word-correct'>
+            {word}
+          </span>
+        );
+      }
+      return (
+        <span className='guess-word guess-word-incorrect'>
+          {word}
+        </span>
+      );
     });
   }
 
@@ -73,7 +94,11 @@ class BuildNumber extends Component {
         </h1>
 
         <div className='build-number-guess'>
-          {this.state.guess.join(' ')}
+          {this.renderFormattedGuess(this.state.guessWords, this.state.answerWords)}
+        </div>
+
+        <div>
+          {this.state.answerWords.join(' ')}
         </div>
 
         <div className='build-number-answers'>

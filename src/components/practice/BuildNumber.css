@@ -11,6 +11,10 @@
 
 .build-number-guess {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .build-number-answers {
@@ -26,3 +30,18 @@
   padding: 10px;
   margin: 6px;
 }
+
+.guess-word {
+  padding: 3px;
+}
+
+.guess-word-correct {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.guess-word-incorrect {
+  color: red;
+  font-weight: bold;
+}
+
