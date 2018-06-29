@@ -73,7 +73,7 @@ class BuildNumber extends Component {
   renderWordButtons() {
     const {languageData} = this.props;
 
-    return languageData.vocabulary.map((word) => {
+    return languageData.vocabulary.sort().map((word) => {
       const onClick = () => {
         this.addGuess(word);
       };
