@@ -10,19 +10,35 @@ const WordButton = (props) => {
   );
 };
 
-const generateNumber = () => (7654321);
+const generateNumber = () => {
+  const getRandomElement = (arr) => (
+    arr[Math.floor(Math.random() * arr.length)]
+  );
+  let maximum = getRandomElement([999, 999999, 999999999]);
+  let number = Math.floor(Math.random() * maximum);
+  return number;
+};
 
 class BuildNumber extends Component {
   constructor(props) {
     super(props);
-
     const number = generateNumber();
     const answerWords = this.props.languageData.translate(number).split(' ');
     this.state = {
       number: number,
       answerWords: answerWords,
       guessWords: [],
-    }
+    };
+  }
+
+  reset() {
+    const number = generateNumber();
+    const answerWords = this.props.languageData.translate(number).split(' ');
+    this.setState({
+      number: number,
+      answerWords: answerWords,
+      guessWords: [],
+    });
   }
 
   addGuess(word) {
@@ -89,6 +105,10 @@ class BuildNumber extends Component {
   render() {
     return (
       <div className='build-number'>
+        <button className='build-number-reset' onClick={() => this.reset()}>
+          reset
+        </button>
+
         <h1 className='build-number-number'>
           {this.state.number.toLocaleString()}
         </h1>
