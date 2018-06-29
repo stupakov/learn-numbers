@@ -26,6 +26,10 @@ class BuildNumber extends Component {
   }
 
   addGuess(word) {
+    if(this.guessHasMistake()) {
+      this.removeGuess();
+    }
+
     this.setState({
       guessWords: this.state.guessWords.concat([word]),
     });
@@ -37,6 +41,17 @@ class BuildNumber extends Component {
     this.setState({
       guessWords: guessWords,
     });
+  }
+
+  guessHasMistake() {
+    let hasMistake = false;
+    const {guessWords, answerWords} = this.state;
+    guessWords.forEach((word, idx) => {
+      if(answerWords[idx] !== word) {
+        hasMistake = true;
+      }
+    });
+    return hasMistake;
   }
 
   renderWordButtons() {
@@ -58,32 +73,17 @@ class BuildNumber extends Component {
     return guessWords.map((word, idx) => {
       if(answerWords[idx] === word) {
         return (
-          <span className='guess-word guess-word-correct'>
+          <span className='guess-word guess-word-correct' key={idx}>
             {word}
           </span>
         );
       }
       return (
-        <span className='guess-word guess-word-incorrect'>
+        <span className='guess-word guess-word-incorrect' key={`${idx}-${word}`}>
           {word}
         </span>
       );
     });
-  }
-
-  renderControlButtons() {
-    const onClick = () => {
-        this.removeGuess();
-      };
-
-    const backspaceButton = (
-      <WordButton
-        key="backspace"
-        onClick={onClick}
-      >&lt;&lt;&lt;</WordButton>
-    );
-
-    return [backspaceButton];
   }
 
   render() {
@@ -102,7 +102,7 @@ class BuildNumber extends Component {
         </div>
 
         <div className='build-number-answers'>
-          {this.renderWordButtons().concat(this.renderControlButtons())}
+          {this.renderWordButtons()}
         </div>
       </div>
     );
