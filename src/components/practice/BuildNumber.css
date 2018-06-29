@@ -10,6 +10,9 @@
 }
 
 .build-number-number {
+  margin: 2px;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 .build-number-guess {

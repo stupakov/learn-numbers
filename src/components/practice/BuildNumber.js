@@ -86,17 +86,23 @@ class BuildNumber extends Component {
   }
 
   renderFormattedGuess(guessWords, answerWords) {
-    return guessWords.map((word, idx) => {
-      if(answerWords[idx] === word) {
+    return answerWords.map((answerWord, idx) => {
+      const guessWord = guessWords[idx];
+      if(guessWords[idx] === answerWord) {
         return (
           <span className='guess-word guess-word-correct' key={idx}>
-            {word}
+            {guessWord}
           </span>
         );
       }
+      if(idx >= guessWords.length) {
+        return (
+          <span className='guess-word'>_____</span>
+        );
+      }
       return (
-        <span className='guess-word guess-word-incorrect' key={`${idx}-${word}`}>
-          {word}
+        <span className='guess-word guess-word-incorrect' key={`${idx}-${guessWord}`}>
+          {guessWord}
         </span>
       );
     });
@@ -109,9 +115,9 @@ class BuildNumber extends Component {
           reset
         </button>
 
-        <h1 className='build-number-number'>
+        <div className='build-number-number'>
           {this.state.number.toLocaleString()}
-        </h1>
+        </div>
 
         <div className='build-number-guess'>
           {this.renderFormattedGuess(this.state.guessWords, this.state.answerWords)}
