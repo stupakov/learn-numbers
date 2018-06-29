@@ -117,10 +117,6 @@ class BuildNumber extends Component {
           {this.renderFormattedGuess(this.state.guessWords, this.state.answerWords)}
         </div>
 
-        <div>
-          {this.state.answerWords.join(' ')}
-        </div>
-
         <div className='build-number-answers'>
           {this.renderWordButtons()}
         </div>

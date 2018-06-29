@@ -30,8 +30,8 @@
   border-radius: 14px;
   border: 3px solid lightblue;
   background-color: pink;
-  padding: 10px;
-  margin: 6px;
+  padding: 5px 10px;
+  margin: 4px;
 }
 
 .guess-word {
