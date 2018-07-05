@@ -105,7 +105,6 @@ const Indonesian = {
     'sebelas',
     'seratus',
     'seribu',
-    'sejuta',
     'puluh',
     'belas',
     'ratus',
