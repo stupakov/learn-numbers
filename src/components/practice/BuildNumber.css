@@ -6,13 +6,39 @@
   justify-content: space-between;
 }
 
-.build-number-reset {
+.build-number-button {
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.build-number-top-row {
+  width: 100%;
+  display: flex;
+  align-items: space-between;
+}
+
+.build-number-spacer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .build-number-number {
+  flex: 3;
+
   margin: 2px;
   font-size: 26px;
   font-weight: bold;
+}
+
+.build-number-reset {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .build-number-guess {
@@ -52,6 +78,11 @@
   font-weight: bold;
   animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
+}
+
+.build-number-success-check {
+  color: green;
+  border: 2px solid green;
 }
 
 @keyframes shake {

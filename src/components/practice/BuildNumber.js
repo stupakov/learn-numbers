@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './BuildNumber.css';
+import { Icon } from 'react-onsenui';
 
 const WordButton = (props) => {
   return (
@@ -118,12 +119,12 @@ class BuildNumber extends Component {
     if(this.guessFullyCorrect()) {
       return (
         <div className='build-number-success'>
+          <Icon icon='check' size={70} className='build-number-success-check build-number-button'/>
           <div>
-            Correct!
+            <button onClick={() => this.reset()}>
+              NEXT NUMBER
+            </button>
           </div>
-          <button onClick={() => this.reset()}>
-            NEXT NUMBER
-          </button>
         </div>
       );
     }
@@ -137,12 +138,16 @@ class BuildNumber extends Component {
   render() {
     return (
       <div className='build-number'>
-        <button className='build-number-reset' onClick={() => this.reset()}>
-          reset
-        </button>
-
-        <div className='build-number-number'>
-          {this.state.number.toLocaleString()}
+        <div className='build-number-top-row'>
+          <div className='build-number-spacer'/>
+          <div className='build-number-number'>
+            {this.state.number.toLocaleString()}
+          </div>
+          <div className='build-number-spacer'>
+            <div className='build-number-reset build-number-button' onClick={() => this.reset()}>
+              <Icon icon='refresh' size={30}/>
+            </div>
+          </div>
         </div>
 
         <div className='build-number-guess'>
