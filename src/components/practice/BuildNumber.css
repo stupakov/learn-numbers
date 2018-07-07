@@ -14,6 +14,7 @@
 
 .build-number-top-row {
   width: 100%;
+  flex: 1;
   display: flex;
   align-items: space-between;
 }
@@ -43,14 +44,22 @@
 
 .build-number-guess {
   width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.build-number-controls {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .build-number-answers {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
