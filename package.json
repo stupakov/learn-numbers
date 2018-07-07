@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "colormap": "^2.3.0",
     "jquery": "^3.3.1",
     "numbers2words": "^1.4.0",
     "onsenui": "^2.10.1",

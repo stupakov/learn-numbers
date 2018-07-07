@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './BuildNumber.css';
 import { Icon } from 'react-onsenui';
+import colormap from 'colormap';
 
 const WordButton = (props) => {
   return (
-    <span className="word-button" onClick={props.onClick}>
+    <span className="word-button" onClick={props.onClick} style={props.style}>
       {props.children}
     </span>
   );
@@ -18,6 +19,19 @@ const generateNumber = () => {
   let maximum = getRandomElement([999, 999999, 999999999]);
   let number = Math.floor(Math.random() * maximum);
   return number;
+};
+
+const getGradientStyle = (idx, length) => {
+  const colors = colormap({
+    colormap: 'spring',
+    nshades: length + 4,
+    format: 'hex',
+    alpha: 1
+  });
+
+  return {
+    backgroundColor: colors[idx]
+  };
 };
 
 class BuildNumber extends Component {
@@ -79,8 +93,9 @@ class BuildNumber extends Component {
 
   renderWordButtons() {
     const {languageData} = this.props;
+    const vocab = languageData.vocabulary.sort();
 
-    return languageData.vocabulary.sort().map((word) => {
+    return vocab.map((word, idx) => {
       const onClick = () => {
         this.addGuess(word);
       };
@@ -88,6 +103,7 @@ class BuildNumber extends Component {
       return <WordButton
         key={word}
         onClick={onClick}
+        style={getGradientStyle(idx, vocab.length)}
       >{word}</WordButton>
     });
   }
