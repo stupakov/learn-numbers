@@ -2,36 +2,18 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './BuildNumber.css';
 import { Icon } from 'react-onsenui';
-import Style from '../../style/style';
+import WordButtons from './WordButtons';
 
-const WordButton = (props) => {
-  return (
-    <span className="word-button" onClick={props.onClick} style={props.style}>
-      {props.children}
-    </span>
-  );
-};
-
-const generateNumber = () => {
+const generateNumber = (() => {
   const getRandomElement = (arr) => (
     arr[Math.floor(Math.random() * arr.length)]
   );
-  let maximum = getRandomElement([999, 999999, 999999999]);
-  let number = Math.floor(Math.random() * maximum);
-  return number;
-};
 
-const getGradientStyle = (() => {
-  const color1 = Style.colorScheme[2];
-  const color2 = Style.colorScheme[4];
-  const colormap = Style.gradientColormap([color1, color2]);
-
-  return (idx, length) => {
-    const fraction = idx / length;
-    return {
-      backgroundColor: colormap(fraction)
-    };
-  };
+  return () => {
+    let maximum = getRandomElement([999, 999999, 999999999]);
+    let number = Math.floor(Math.random() * maximum);
+    return number;
+  }
 })();
 
 class BuildNumber extends Component {
@@ -95,17 +77,12 @@ class BuildNumber extends Component {
     const {languageData} = this.props;
     const vocab = languageData.vocabulary.sort();
 
-    return vocab.map((word, idx) => {
-      const onClick = () => {
-        this.addGuess(word);
-      };
-
-      return <WordButton
-        key={word}
-        onClick={onClick}
-        style={getGradientStyle(idx, vocab.length)}
-      >{word}</WordButton>
-    });
+    return (
+      <WordButtons
+        words={vocab}
+        onClick={this.addGuess.bind(this)}
+      />
+    )
   }
 
   renderFormattedGuess(guessWords, answerWords) {
