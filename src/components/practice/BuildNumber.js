@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './BuildNumber.css';
 import { Icon } from 'react-onsenui';
-import colormap from 'colormap';
+import Style from '../../style/style';
 
 const WordButton = (props) => {
   return (
@@ -21,18 +21,18 @@ const generateNumber = () => {
   return number;
 };
 
-const getGradientStyle = (idx, length) => {
-  const colors = colormap({
-    colormap: 'spring',
-    nshades: length + 4,
-    format: 'hex',
-    alpha: 1
-  });
+const getGradientStyle = (() => {
+  const color1 = Style.colorScheme[2];
+  const color2 = Style.colorScheme[4];
+  const colormap = Style.gradientColormap([color1, color2]);
 
-  return {
-    backgroundColor: colors[idx]
+  return (idx, length) => {
+    const fraction = idx / length;
+    return {
+      backgroundColor: colormap(fraction)
+    };
   };
-};
+})();
 
 class BuildNumber extends Component {
   constructor(props) {

@@ -1,3 +1,5 @@
+const interpolate = require('color-interpolate');
+
 const colorScheme = [
   "#59C3C3",
   "#5773BA",
@@ -6,8 +8,11 @@ const colorScheme = [
   "#FFDB4C",
 ];
 
+const gradientColormap = (colors) => interpolate(colors);
+
 const Style = {
-  colorScheme
+  colorScheme,
+  gradientColormap,
 };
 
 export default Style;
