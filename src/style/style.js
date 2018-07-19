@@ -1,4 +1,4 @@
-const interpolate = require('color-interpolate');
+const interpolate = require('../utils/color-interpolate');
 
 const colorScheme = [
   "#59C3C3",

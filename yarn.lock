@@ -1565,20 +1565,11 @@ color-convert@^1.3.0, color-convert@^1.9.0:
   dependencies:
     color-name "1.1.1"
 
-color-interpolate@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/color-interpolate/-/color-interpolate-1.0.2.tgz#ed90f8b1f02b109f46d30c343978ae3b139de792"
-  dependencies:
-    color-parse "^1.2.0"
-    color-space "^1.14.3"
-    lerp "^1.0.3"
-    mumath "^3.0.0"
-
 color-name@1.1.1, color-name@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.1.tgz#4b1415304cf50028ea81643643bd82ea05803689"
 
-color-parse@^1.2.0:
+color-parse@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/color-parse/-/color-parse-1.3.7.tgz#34ac4fb0782b992d3614417b60896c4884771b26"
   dependencies:
@@ -1586,7 +1577,7 @@ color-parse@^1.2.0:
     defined "^1.0.0"
     is-plain-obj "^1.1.0"
 
-color-space@^1.14.3:
+color-space@^1.16.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/color-space/-/color-space-1.16.0.tgz#611781bca41cd8582a1466fd9e28a7d3d89772a2"
   dependencies:
@@ -4642,7 +4633,7 @@ multicast-dns@^6.0.1:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
 
-mumath@^3.0.0, mumath@^3.3.4:
+mumath@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/mumath/-/mumath-3.3.4.tgz#48d4a0f0fd8cad4e7b32096ee89b161a63d30bbf"
   dependencies:
