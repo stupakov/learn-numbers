@@ -134,13 +134,22 @@ class BuildNumber extends Component {
   renderControls() {
     if(this.guessFullyCorrect()) {
       return (
-        <div className='build-number-success'>
+        <div
+          className='build-number-success'
+          onClick={() => this.reset()}
+        >
           <Icon
             icon='check'
             size={70}
             className='build-number-success-check build-number-button'
-            onClick={() => this.reset()}
           />
+          <div className='build-number-success-next build-number-button'>
+            <Icon
+              icon='long-arrow-right'
+              size={70}
+            />
+            <div>Next</div>
+          </div>
         </div>
       );
     }

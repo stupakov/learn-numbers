@@ -91,7 +91,14 @@
 
 .build-number-success-check {
   color: green;
-  border: 2px solid green;
+  border: none;
+  margin-bottom: 16px;
+}
+
+.build-number-success-next {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 16px 32px;
 }
 
 @keyframes shake {
