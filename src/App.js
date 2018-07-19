@@ -6,11 +6,15 @@ import ReferencePage from './components/ReferencePage';
 import { Page, Tabbar, Tab } from 'react-onsenui';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
+import Style from './style/style';
 
 import LanguageData from './languages/indonesian';
 
+const { colorScheme } = Style;
+
 class MyTab extends Component {
   render() {
+
     return (
       <Page>
         <div style={{
@@ -18,9 +22,9 @@ class MyTab extends Component {
           left: '0px',
           right: '0px',
           height: 'calc(100vh - 49px)',
-          backgroundColor: 'lightblue'
+          backgroundColor: colorScheme[this.props.tabIndex],
         }}>
-          {this.props.children}
+        {this.props.children}
         </div>
       </Page>
     );
@@ -38,15 +42,15 @@ class App extends Component {
   renderTabs() {
     return [
       {
-        content: <MyTab key="learn"><LearnPage languageData={LanguageData}/></MyTab>,
+        content: <MyTab key="learn" tabIndex={0}><LearnPage languageData={LanguageData}/></MyTab>,
         tab: <Tab label='Learn' icon='fa-lightbulb-o' key="learn"/>
       },
       {
-        content: <MyTab key="practice"><PracticePage languageData={LanguageData}/></MyTab>,
+        content: <MyTab key="practice" tabIndex={1}><PracticePage languageData={LanguageData}/></MyTab>,
         tab: <Tab label='Practice' icon='fa-pencil-square-o' key="practice"/>
       },
       {
-        content: <MyTab key="reference"><ReferencePage languageData={LanguageData}/></MyTab>,
+        content: <MyTab key="reference" tabIndex={2}><ReferencePage languageData={LanguageData}/></MyTab>,
         tab: <Tab label='Reference' icon='md-book' key="reference" />
       }
     ];
