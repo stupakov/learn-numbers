@@ -8,7 +8,7 @@ const emphasizeWord = (text, highlight) => {
 
 const Definition = (props) => {
   return (
-    <div className='definition' onClick={props.onClick}>
+    <div className='definition'>
       <h1>
         {props.label.toLocaleString()}
       </h1>
