@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Carousel from './Carousel';
 import LearnNumbersGroup from './learn/LearnNumbersGroup';
 import Definition from "./shared/Definition";
+import { Icon } from 'react-onsenui';
 import './shared/overlay.css';
 
 // container component
@@ -42,7 +43,15 @@ class LearnPage extends Component {
     ));
 
     return (
-      <div className='overlay' onClick={this.hideOverlay.bind(this)}>
+      <div className='overlay' onClick={() => this.hideOverlay()}>
+        <div className='build-number-top-row'>
+          <div className='build-number-spacer'/>
+          <div className='build-number-spacer'>
+            <div className='build-number-reset build-number-button'>
+              <Icon icon='close' size={30}/>
+            </div>
+          </div>
+        </div>
         <Definition
           {...{label, translation}}
           examples={examplesWithTranslations}
