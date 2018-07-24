@@ -3,7 +3,7 @@ import Carousel from './Carousel';
 import Definition from './shared/Definition';
 
 const renderGroup = (group, languageData) => {
-  const {translate, getExamples} = languageData;
+  const {translate} = languageData;
   const {label, translation} = group;
   const examplesWithTranslations = group.examples.map(ex => (
     {

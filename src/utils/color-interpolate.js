@@ -18,9 +18,7 @@ function interpolate (palette) {
 	palette = palette.map(c => {
 		c = parse(c);
 		if (c.space !== 'rgb') {
-			if (c.space !== 'hsl') throw {
-				message: `${c.space} space is not supported.`
-			};
+			if (c.space !== 'hsl') throw new Error(`${c.space} space is not supported.`);
 			c.values = hsl.rgb(c.values);
 		}
 		c.values.push(c.alpha);
