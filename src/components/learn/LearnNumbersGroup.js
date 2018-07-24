@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Style from '../../style/style';
 
 // TODO: consider using styled-div for these
 
@@ -35,7 +36,7 @@ const NumberBox = (props) => {
   let borderRadius = props.wide ? '35px' : '50%';
 
   const style = {
-    border: '3px solid hotpink',
+    border: `3px solid ${Style.colorScheme[2]}`,
 
     width: width,
     height: '70px',
