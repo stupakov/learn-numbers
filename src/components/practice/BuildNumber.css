@@ -6,12 +6,6 @@
   justify-content: space-between;
 }
 
-.build-number-button {
-  border: 1px solid black;
-  padding: 4px;
-  border-radius: 4px;
-}
-
 .build-number-top-row {
   width: 100%;
   flex: 1;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './BuildNumber.css';
+import '../shared/common.css';
 import { Icon } from 'react-onsenui';
 import WordButtons from './WordButtons';
 
@@ -118,9 +119,9 @@ class BuildNumber extends Component {
           <Icon
             icon='check'
             size={70}
-            className='build-number-success-check build-number-button'
+            className='build-number-success-check action-button'
           />
-          <div className='build-number-success-next build-number-button'>
+          <div className='build-number-success-next action-button'>
             <Icon
               icon='long-arrow-right'
               size={70}
@@ -146,7 +147,7 @@ class BuildNumber extends Component {
             {this.state.number.toLocaleString()}
           </div>
           <div className='build-number-spacer'>
-            <div className='build-number-reset build-number-button' onClick={() => this.reset()}>
+            <div className='build-number-reset action-button' onClick={() => this.reset()}>
               <Icon icon='refresh' size={30}/>
             </div>
           </div>
