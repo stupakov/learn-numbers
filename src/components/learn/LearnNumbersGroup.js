@@ -7,6 +7,7 @@ import Style from '../../style/style';
 const NumberRows = (props) => {
   const style = {
     width: '100%',
+    marginBottom: '15px',
   };
 
   return (

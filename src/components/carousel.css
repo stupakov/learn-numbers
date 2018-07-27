@@ -12,8 +12,11 @@
 }
 
 .slide {
-  display: flex;
   width: 100%;
+}
+
+.slide-flex {
+  display: flex;
 }
 
 .slide-wrapper {

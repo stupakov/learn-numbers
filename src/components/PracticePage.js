@@ -8,7 +8,7 @@ const PracticePage = (props) => {
 
   return (
     <Carousel>
-      <div className="slide">
+      <div className="slide slide-flex">
         <BuildNumber {...{languageData}}/>
       </div>
     </Carousel>

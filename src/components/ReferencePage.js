@@ -23,7 +23,7 @@ const ReferencePage = (props) => {
   return (
     <Carousel>
       {languageData.referenceSlides.map((group) => (
-        <div className='slide' label={group.label} key={group.label}>
+        <div className='slide slide-flex' label={group.label} key={group.label}>
           {renderGroup(group, languageData)}
         </div>
       ))}
