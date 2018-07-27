@@ -4,7 +4,6 @@ const oneThroughNine = [1,2,3,4,5,6,7,8,9];
 
 const examples = {
   ones: [0].concat(oneThroughNine),
-  multipliers: [10, 20, 11, 12, 100, 200, 1000, 2000, 1000000, 2000000],
   teens: oneThroughNine.map(n => n+10),
   tens: oneThroughNine.map(n => n*10),
   hundreds: oneThroughNine.map(n => n*100),
@@ -17,11 +16,6 @@ const groups = {
     label: "0, 1, 2, ...",
     translation: undefined,
     examples: examples.ones,
-  },
-  multipliers: {
-    label: "10, 11, 100, 1k, 1M",
-    translation: undefined,
-    examples: examples.multipliers,
   },
   teens: {
     label: "11, 12, ...",
@@ -128,7 +122,6 @@ const Indonesian = (() => {
     ],
     referenceSlides: [
       groups.ones,
-      groups.multipliers,
       groups.teens,
       groups.tens,
       groups.hundreds,
