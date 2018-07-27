@@ -45,7 +45,7 @@ describe('sounds', () => {
 
 describe('getSoundFiles()', () => {
   it('returns an array of filenames of sounds corresponding to the given words', () => {
-    expect(ind.getSoundFiles('seratus ribu')).toEqual(['seratus.wav', 'ribu.wav']);
+    expect(ind.getSoundFiles('dua belas')).toEqual(['dua.wav', 'belas.wav']);
   });
 
   it('returns an empty array when the words are unknown', () => {
