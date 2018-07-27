@@ -44,28 +44,6 @@ const groups = {
   },
 };
 
-const layout = {
-  ones: [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-    [0]
-  ],
-  teens: [
-    [10],
-    [11,12,13],
-    [14,15,16],
-    [17,18,19]
-  ],
-  multipliers: [
-    [groups.teens.label],
-    [groups.tens.label],
-    [groups.hundreds.label],
-    [groups.thousands.label],
-    [groups.millions.label],
-  ]
-};
-
 const Indonesian = (() => {
   const warnMissingSoundFiles = (lang) => {
     lang.vocabulary.forEach(word => {
@@ -106,19 +84,17 @@ const Indonesian = (() => {
   const indonesian = {
     name: 'indonesian',
     _getTranslator: () => (new T2W("ID_ID")),
-    learnSlides: [
-      {
-        label: '0-9',
-        layout: layout.ones,
-      },
-      {
-        label: '10-19',
-        layout: layout.teens,
-      },
-      {
-        label: '10, 100, 1k, 1M',
-        layout: layout.multipliers,
-      },
+    learnLayout: [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [9, 10, 11],
+      [12, 13, 14],
+      [15, 16, 17],
+      [18, 19, 20],
+      [100, 200],
+      [1000, 2000],
+      [1000000, 2000000],
     ],
     referenceSlides: [
       groups.ones,

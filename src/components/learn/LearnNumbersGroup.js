@@ -7,9 +7,6 @@ import Style from '../../style/style';
 const NumberRows = (props) => {
   const style = {
     width: '100%',
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'column',
   };
 
   return (
@@ -19,7 +16,6 @@ const NumberRows = (props) => {
 
 const NumberRow = (props) => {
   const style = {
-    flex: '1',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -45,6 +41,8 @@ const NumberBox = (props) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginLeft: '10px',
+    marginRight: '10px',
   };
 
   return (
@@ -59,10 +57,10 @@ const LearnNumbersGroup = (props) => {
         <NumberRow key={rowIdx}>
           {row.map((n) => (
             <NumberBox
-              number={n}
+              number={n.toLocaleString()}
               key={n}
               onClick={() => props.showFlashcard(n)}
-              wide={props.wide}
+              wide={row.length < 3}
             />
           ))}
         </NumberRow>
@@ -73,7 +71,6 @@ const LearnNumbersGroup = (props) => {
 
 LearnNumbersGroup.propTypes = {
   layout: PropTypes.array.isRequired,
-  wide: PropTypes.bool.isRequired,
   showFlashcard: PropTypes.func.isRequired,
 };
 
