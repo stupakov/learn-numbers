@@ -1,10 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SoundPlayer from './SoundPlayer';
 import "./Definition.css";
 
 const emphasizeWord = (text, highlight) => {
   return text;
 };
+
+const _renderSoundPlayer = (props) => {
+  const { soundFiles } = props;
+
+  if (undefined === soundFiles) {
+    return undefined;
+  }
+  if (soundFiles.length === 0) {
+    return undefined;
+  }
+  return (
+    <SoundPlayer urls={soundFiles}/>
+  );
+}
 
 const Definition = (props) => {
   return (
@@ -12,6 +27,7 @@ const Definition = (props) => {
       <h1>
         {props.label.toLocaleString()}
       </h1>
+      {_renderSoundPlayer(props)}
       <h2>
         {props.translation}
       </h2>
@@ -32,6 +48,7 @@ Definition.propTypes = {
   label: PropTypes.string.isRequired,
   translation: PropTypes.string,
   examples: PropTypes.array.isRequired,
+  soundFiles: PropTypes.array,
 };
 
 export default Definition;

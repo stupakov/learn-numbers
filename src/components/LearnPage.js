@@ -30,10 +30,11 @@ class LearnPage extends Component {
   }
 
   _renderOverlay() {
-    const {translate, getExamples} = this.props.languageData;
+    const {translate, getExamples, getSoundFiles} = this.props.languageData;
     const number = this.state.overlayNumber;
     const label = number.toString();
     const translation = translate(number);
+    const soundFiles = getSoundFiles(translation);
     const examplesWithTranslations = getExamples(number).map(ex => (
       {
         number: ex,
@@ -46,6 +47,7 @@ class LearnPage extends Component {
         <Definition
           {...{label, translation}}
           examples={examplesWithTranslations}
+          soundFiles={soundFiles}
         />
       </div>
     );

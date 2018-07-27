@@ -72,32 +72,16 @@ const layout = {
   ]
 };
 
-const Indonesian = {
-  _getTranslator: () => (new T2W("ID_ID")),
-  learnSlides: [
-    {
-      label: '0-9',
-      layout: layout.ones,
-    },
-    {
-      label: '10-19',
-      layout: layout.teens,
-    },
-    {
-      label: '10, 100, 1k, 1M',
-      layout: layout.multipliers,
-    },
-  ],
-  referenceSlides: [
-    groups.ones,
-    groups.multipliers,
-    groups.teens,
-    groups.tens,
-    groups.hundreds,
-    groups.thousands,
-    groups.millions,
-  ],
-  vocabulary: [
+const Indonesian = (() => {
+  const warnMissingSoundFiles = (lang) => {
+    lang.vocabulary.forEach(word => {
+      if(lang.sounds[word] === undefined) {
+        console.warn(`Language ${lang.name} missing sound file for word ${word}`);
+      };
+    });
+  };
+
+  const vocabulary = [
     'nol',
     'satu',
     'dua',
@@ -117,8 +101,49 @@ const Indonesian = {
     'ratus',
     'ribu',
     'juta',
-  ],
-}
+  ];
+
+  const sounds = {
+    'satu' : require('./sounds/indonesian/satu.wav'),
+    'dua' : require('./sounds/indonesian/dua.wav'),
+    'belas' : require('./sounds/indonesian/belas.wav'),
+  };
+
+  const indonesian = {
+    name: 'indonesian',
+    _getTranslator: () => (new T2W("ID_ID")),
+    learnSlides: [
+      {
+        label: '0-9',
+        layout: layout.ones,
+      },
+      {
+        label: '10-19',
+        layout: layout.teens,
+      },
+      {
+        label: '10, 100, 1k, 1M',
+        layout: layout.multipliers,
+      },
+    ],
+    referenceSlides: [
+      groups.ones,
+      groups.multipliers,
+      groups.teens,
+      groups.tens,
+      groups.hundreds,
+      groups.thousands,
+      groups.millions,
+    ],
+    vocabulary: vocabulary,
+    sounds: sounds,
+  };
+
+  warnMissingSoundFiles(indonesian);
+
+  return indonesian;
+})();
+
 
 const _findGroupWithLabel = (label) => {
   const k = Object.keys(groups).filter(key => (
@@ -152,10 +177,17 @@ const generateGetExamplesFor = (language) => (label) => {
   return [];
 };
 
+const generateGetSoundFilesFor = (language) => (label) => {
+  const words = label.split(' ');
+  const files = words.map(word => language.sounds[word]);
+  return files.filter(file => file !== undefined);
+};
+
 const wrapLanguageDefinition = (language) => (
   Object.assign(language, {
     translate: generateTranslateFor(language),
     getExamples: generateGetExamplesFor(language),
+    getSoundFiles: generateGetSoundFilesFor(language),
   })
 );
 

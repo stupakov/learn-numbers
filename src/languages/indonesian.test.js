@@ -33,3 +33,27 @@ describe('getExamples()', () => {
   });
 });
 
+describe('sounds', () => {
+  it('returns the right filename for the given word', () => {
+    expect(ind.sounds['satu']).toEqual('satu.wav');
+  });
+
+  it('returns undefined for an unknown word', () => {
+    expect(ind.sounds['xyz']).toEqual(undefined);
+  });
+});
+
+describe('getSoundFiles()', () => {
+  it('returns an array of filenames of sounds corresponding to the given words', () => {
+    expect(ind.getSoundFiles('seratus ribu')).toEqual(['seratus.wav', 'ribu.wav']);
+  });
+
+  it('returns an empty array when the words are unknown', () => {
+    expect(ind.getSoundFiles('abc xyz')).toEqual([]);
+  });
+
+  it('returns an empty array for an empty string', () => {
+    expect(ind.getSoundFiles('')).toEqual([]);
+  });
+});
+
