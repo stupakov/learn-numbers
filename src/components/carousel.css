@@ -7,8 +7,12 @@
 }
 .slick-arrow:hover {
 }
+.slick-prev, .slick-next {
+  top: 15%;
+}
 .slick-prev:before, .slick-next:before {
-  /* font-size: 45px; */
+  font-size: 45px;
+  opacity: 1;
 }
 
 .slide {
