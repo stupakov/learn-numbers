@@ -102,7 +102,7 @@ class BuildNumber extends Component {
         );
       }
       return (
-        <span className='guess-word guess-word-incorrect' key={idx}>
+        <span className='guess-word guess-word-incorrect' key={`${guessWord}-${idx}`}>
           {guessWord}
         </span>
       );
